@@ -10,7 +10,7 @@ public class LibraryContext:DbContext, ILibraryDbContext
     public LibraryContext(DbContextOptions<LibraryContext> options)
         : base(options)
     {
-        this.SeedData();
+        this.Database.EnsureCreated();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

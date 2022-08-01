@@ -1,5 +1,7 @@
 using AutoMapper;
 using Library.Aplication.Dtos.BookDtos;
+using Library.Aplication.Dtos.RateDto;
+using Library.Aplication.Dtos.ReviewDtos;
 using Library.Aplication.Enums;
 using Library.Aplication.Services;
 using Library.Domain.Entities;
@@ -13,11 +15,13 @@ namespace LibraryApi.Controllers;
 public class BookController:ControllerBase
 {
     private readonly IBookService _bookService;
-
+    private readonly IConfiguration _configuration;
     
-    public BookController(IBookService bookService)
+    
+    public BookController(IBookService bookService, IConfiguration configuration)
     {
         _bookService = bookService;
+        _configuration = configuration;
     }
 
     [HttpGet]
@@ -33,10 +37,44 @@ public class BookController:ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
-        var book = await _bookService.GetBookDetails(id);
-        if (book == null)
-            return NotFound();
+        var book = await _bookService.GetBookDetailsAsync(id);
 
         return Ok(book);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id, [FromQuery]string secret)
+    {
+        if (_configuration["AppSecret"] != secret)
+        {
+            return BadRequest();
+        }
+
+        await _bookService.DeleteBookAsync(id);
+
+        return NoContent();
+    }
+
+    [HttpPost("save")]
+    public async Task<IActionResult> UpsertBook([FromBody]CreatingBookDto bookDto)
+    {
+        var bookId = await _bookService.UpsertBookAsync(bookDto);
+        return Ok(new {Id = bookId });
+    }
+
+    [HttpPost("{id}/review")]
+    public async Task<IActionResult> CreateReview(Guid id, CreatingReviewDto reviewDto)
+    {
+        var reviewId = await _bookService.CreateReview(id, reviewDto);
+
+        return Ok(new { Id = reviewId });
+    }
+
+    [HttpPost("{id}/rate")]
+    public async Task<IActionResult> CreateRate(Guid id, CreatingRateDto rateDto)
+    {
+        await _bookService.CreateRate(id, rateDto);
+
+        return NoContent();
     }
 }
