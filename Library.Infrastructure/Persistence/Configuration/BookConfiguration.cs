@@ -24,7 +24,7 @@ public class BookConfiguration:IEntityTypeConfiguration<Book>
                 Author = "Rowling",
                 Content = "Content of the book.",
                 Cover = "Cover!",
-                Genre = "Fantasy Fiction"
+                Genre = "Horror"
             }, 
             new Book()
             {
@@ -33,7 +33,7 @@ public class BookConfiguration:IEntityTypeConfiguration<Book>
                 Author = "Tolkien",
                 Content = "Content of the book.",
                 Cover = "Cover!",
-                Genre = "Fantasy Fiction"
+                Genre = "Fantasy"
             }, 
             new Book()
             {
@@ -60,7 +60,7 @@ public class BookConfiguration:IEntityTypeConfiguration<Book>
                 Author = "Carlo Collodi",
                 Content = "Content of the book.",
                 Cover = "Cover!",
-                Genre = "Fantasy Fiction",
+                Genre = "Horror",
             }, 
             new Book()
             {
@@ -87,7 +87,7 @@ public class BookConfiguration:IEntityTypeConfiguration<Book>
                 Author = "Marcel Proust",
                 Content = "Content of the book.",
                 Cover = "Cover!",
-                Genre = "Philosophical fiction",
+                Genre = "Philosophical",
             }, 
             new Book()
             {
@@ -96,7 +96,7 @@ public class BookConfiguration:IEntityTypeConfiguration<Book>
                 Author = "Markus Zusak",
                 Content = "Content of the book.",
                 Cover = "Cover!",
-                Genre = "Historical Fiction",
+                Genre = "Historical",
             }, 
             new Book()
             {
@@ -105,7 +105,7 @@ public class BookConfiguration:IEntityTypeConfiguration<Book>
                 Author = "Rowling",
                 Content = "Content of the book.",
                 Cover = "Cover!",
-                Genre = "Fantasy Fiction",
+                Genre = "Fantasy",
             }
         );
     }

@@ -42,21 +42,8 @@ public class BookService:IBookService
 
     public async Task<BookDetailsDto> GetBookDetailsAsync(Guid id)
     {
-        var book = await _libraryContext.Books.Select(b => new BookDetailsDto()
-        {
-            Id = b.Id,
-            Title = b.Title,
-            Author = b.Author,
-            Content = b.Content,
-            Cover = b.Cover,
-            Rating = b.Ratings.Average(r => r.Score),
-            Reviews = b.Reviews.Select(r => new ReviewDto()
-            {
-                Id = r.Id,
-                Message = r.Message,
-                Reviewer = r.Reviewer
-            })
-        }).FirstOrDefaultAsync(b=>b.Id==id);
+        var book = await _libraryContext.Books.ProjectTo<BookDetailsDto>(_mapper.ConfigurationProvider)
+            .FirstOrDefaultAsync(b=>b.Id==id);
 
         if (book == null)
             throw new BookNotFoundException();
@@ -122,6 +109,7 @@ public class BookService:IBookService
             BookId = bookId,
             Score = rateDto.Score
         });
+        await _libraryContext.SaveChangesAsync(CancellationToken.None);
     }
     
 }

@@ -8,7 +8,7 @@ public class Review
     
     public Guid BookId { get; set; }
     
-    public string? Reviewer { get; set; }
+    public string Reviewer { get; set; }
     
     public Book Book { get; set; }
 }

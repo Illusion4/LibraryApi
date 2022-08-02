@@ -43,12 +43,6 @@ public class RatingConfiguration:IEntityTypeConfiguration<Rating>
             new Rating()
             {
                 Id = Guid.NewGuid(),
-                BookId = Guid.Parse("5e7274ad-3132-4ad7-be36-38778a8f7b1c"),
-                Score = 5
-            },
-            new Rating()
-            {
-                Id = Guid.NewGuid(),
                 BookId = Guid.Parse("72a7a013-8bc4-4ae6-89cb-d9f19e0c9cf9"),
                 Score = 8
             },

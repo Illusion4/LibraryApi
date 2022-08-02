@@ -16,6 +16,76 @@ public class ReviewConfiguration:IEntityTypeConfiguration<Review>
                 BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
                 Message = "Cool book",
                 Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
+            },
+            new Review()
+            {
+                Id = Guid.NewGuid(),
+                BookId = Guid.Parse("e77cf2cb-3f3a-4f0b-ac5a-90a3263d075a"),
+                Message = "Cool book",
+                Reviewer = "Vasya"
             }
         });
     }
