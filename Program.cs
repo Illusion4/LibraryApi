@@ -22,9 +22,27 @@ builder.Services.AddHttpLogging(options =>
 
 builder.Services.AddTransient<IBookService,BookService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy((builder) =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 app.UseExceptionHandler("/error");
+
+app.UseCors(builder =>
+{
+    builder.WithOrigins("http://localhost:4200")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials();
+});
 
 app.UseHttpLogging();
 

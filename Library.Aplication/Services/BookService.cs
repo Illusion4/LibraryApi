@@ -37,6 +37,7 @@ public class BookService:IBookService
         var query = _libraryContext.Books.AsQueryable()
             .GetTopBooks(genre);
 
+        var res = query.ToList();
         return await _mapper.ProjectTo<BookDto>(query).ToListAsync();
     }
 

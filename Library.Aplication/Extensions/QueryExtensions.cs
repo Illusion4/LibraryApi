@@ -11,7 +11,7 @@ public static class QueryExtensions
     {
         BooksOrderingParameter.Author => query.OrderBy(b=>b.Author),
         BooksOrderingParameter.Title => query.OrderBy(b=>b.Title),
-        BooksOrderingParameter.Rating => query.OrderBy(b=>b.Ratings.Average(r=>r.Score)),
+        BooksOrderingParameter.Rating => query.OrderBy(b=>b.Ratings.Count>0? b.Ratings.Average(r => r.Score) : default),
         _ => query
     };
 
